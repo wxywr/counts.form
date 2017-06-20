@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name="applicable-device" content="mobile">
+	<title>营养计算首页</title>
+	<link rel="stylesheet" href="css/count.css" type="text/css">
+</head>
+<body>
+	<div class="header">
+		<h1>肾功能不全饮食方案</h1>
+	</div>
+	<div class="main">
+		<form action="" id="form" method="post">
+			<div class="form-top">
+				<ul class="form-top-l">
+					<li>身高 (cm)</li>
+					<li>体重 (kg)</li>
+					<li>年龄 (岁)</li>
+					<li>性别 </li>
+				</ul>
+				<ul class="form-top-r">
+					<li><input type="text" class="height please" placeholder="请输入您的身高" name="tall" value="" required><span class="no error"></span></li>
+					<li><input type="text" class="weight please" placeholder="请输入您的体重" name="heavy" value=""><span class="no error"></span></li>
+					<li><input type="text" class="age please" placeholder="请输入您的年龄" name="age" value=""><span class="no error"></span></li>
+					<li><input type="checkbox" name="sex" id="check-a" class="select man sex" value="male"><label for="check-a" class="label-a"></label> 男 <input type="checkbox" name="sex" id="check-b" class="select woman sex" value="female"><label for="check-b" class="label-b"></label> 女</li>
+				</ul>
+			</div>
+			<div class="form-under">
+				<ul class="form-under-l">
+					<li>血肌酐单位</li>
+					<li>血肌酐值</li>
+				</ul>
+				<ul class="form-under-r">
+					<li><input type="checkbox" name="unit" id="check-c" class="select umon unit" value="1"><label for="check-c" class="label-c"></label> umon/L <input type="checkbox" name="unit" id="check-d" class="select mg unit" value="0"><label for="check-d" class="label-d"></label><span class="end">mg/dl</span></li>
+					<li><input type="text" class="please numb" placeholder="请输血肌酐值" name="scr" value=""><span class="no err"></span> <span class="dw">umon/L</span></li>
+				</ul>
+			</div>
+			<div class="report"><a href="javascript:;" class="btn">生成饮食报告</a></div>
+		</form>
+		<div class="alert">请填写完整!</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/count.js"></script>
+<script type="text/javascript" src="js/form.js"></script>
+<script type="text/javascript" src="js/tab.js"></script>
+</html>

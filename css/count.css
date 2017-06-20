@@ -1,0 +1,358 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing:border-box;
+	font-family: "Microsoft YaHei";
+}
+body{
+	background-color: #fff;
+}
+a{
+	text-decoration: none;
+}
+ul,ol,li{
+	list-style:none;
+}
+input,img{
+	vertical-align:middle;
+}
+.header{
+	width: 100%;
+	background-color: #1CBA66;
+}
+.header h1{
+	color: #fff;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 20px;
+}
+
+/*--------------------首页--------------------*/
+.form-top{
+	margin: 20px auto;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display: flex;
+}
+.form-under{
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display: flex;
+	border: 1px dashed #1CBA66;
+	border-width: 1px 0 1px 0;
+	padding: 30px 0;
+}
+.form-top-l,.form-under-l{
+	width: 100px;
+	text-align: left;
+	margin-left: 5%;
+}
+.form-top-r,.form-under-r{
+	-webkit-flex:1;
+	-ms-flex:1;
+	flex: 1;
+}
+.form-top-l,.form-under-l,.form-under-r,.form-top-r{
+	font-size: 18px;
+	color: #000;
+}
+#form ul li{
+	line-height: 50px;
+}
+.form-top input[type="text"]{
+	width: 190px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #333;
+	border-width: 0 0 1px 0;
+	outline: none;
+	font-size: 18px;
+	background-color: #fff;
+	text-indent: 5px;
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+form ::-webkit-input-placeholder{
+	color: #ccc;
+	font-size: 16px;
+}
+.form-under-r input[type="text"]{
+	width: 125px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #333;
+	border-width: 0 0 1px 0;
+	outline: none;
+	font-size: 18px;
+	background-color: #fff;
+	text-indent: 5px;
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+form .select{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	vertical-align: -1px;
+	outline: none;
+	opacity: 0;
+}
+form label{
+	width: 17px;
+	height: 17px;
+	background: url(../images/select.png) no-repeat;
+	background-size: 90%;
+	background-position: 2px 1px;
+	position: absolute;
+	top: 17px;
+}
+form label.label-a,.label-c{
+	left: 5px;
+}
+form label.label-b{
+	left: 87px;
+}
+form label.label-d{
+	left: 112px;
+}                            
+.form-top-r .man,.umon{
+	margin-left: 5px;
+}
+.form-top-r .woman{	
+	margin-left: 40px;
+}
+.form-under-r .mg{
+	position: absolute;
+	left: 113px;
+	top: 17px;
+}
+.form-under-r .end{
+	position: absolute;
+	left: 134px;
+}
+.report a{
+	display: block;
+}
+.report a,.download{
+	width: 60%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #2F9330; 
+	margin: 30px auto;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 5px;
+	border-radius: 5px;
+}
+
+.form-top-r li,.form-under-r li{
+	position: relative;
+}
+.no{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	bottom: 10px;
+	background: url(../images/error.png) no-repeat;
+	background-size: 80%;
+	display: none;
+}
+.error{
+	left: 170px;
+}
+.err{
+	left: 110px;
+}
+
+/*----------------------饮食报告-----------------*/
+.info{
+	background-color: #F2FBF6;
+	padding: 20px 0;
+	border-bottom: 1px solid #737373;
+}
+.info .time{
+	color: #000;
+	font-weight: bold;
+	font-size: 18px;
+}
+.info .info-wrap{
+	width: 90%;
+	margin: 0 auto;
+}
+.info p{
+	font-size: 16px;
+	margin: 25px 0;
+	font-weight: 600;
+	color: #010A05;
+}
+.info span{
+	color: #1CBA66;
+}
+.list{
+	background-color: #fff;
+	padding: 20px 0;
+}
+.list h2{
+	color: #1CBA66;
+	font-size: 18px;
+	width: 95%;
+	margin-left: 5%;
+	height: 30px;
+	line-height: 25px;
+	border: 1px solid #1CBA66;
+	border-width: 0 0 1px 0;
+} 
+.list h3{
+	font-size: 18px;
+	color: #000;
+}
+.list a{
+	color: #0099FF;
+	font-size: 16px;
+	font-weight: 500;
+}
+.list ul span{
+	font-size: 16px;
+}
+.list .hun,.su,.hot{
+	width: 95%;
+	margin-left: 5%;
+}
+.list .hun,.su{
+	border-bottom: 1px dashed #333;
+}
+.list ul li{
+	overflow: hidden;
+	line-height: 35px;
+}
+.list ul .hun-l{
+	float: left;
+}
+.list ul .hun-r{
+	float: right;
+	margin-right: 5%;
+}
+.list i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	background: url(../images/food.png) no-repeat;
+	background-size: 90%;
+	margin:  0 5px 0 20px;
+}
+.list i.egg{
+	background-position: 1px -23px;
+}
+.list i.greens{
+	background-position: -2px -44px;
+}
+.list i.fruits{
+	background-position: -2px -65px;
+}
+.list i.rice{
+	background-position: -2px -84px;
+}
+.list i.flour{
+	background-position: -2px -105px;
+}
+.list li .btm{
+	margin-left: 23px;
+}
+
+/*---------------------食物清单----------------------*/
+.food-sorts{
+	background-color: #fff;
+	width: 100%;
+	border-bottom: 1px solid #333;
+	padding: 20px 5% 0 5%;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+}
+.food-sorts li{
+	color: #000;
+	font-size: 18px;
+	padding-bottom: 3px;
+}
+.three-columns{
+	width: 100%;
+}
+.three-columns .eat-top,.eat-btm{
+	background-color: #fff;
+	margin-top: 5px;
+	border-left: 5px solid #1CBA66;  
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+.eat ul li{
+	border-bottom: 1px dashed #999;
+	overflow: hidden;
+	font-size: 14px;
+	padding: 10px 0;
+}
+.eat ul li .eat-l{
+	float: left;
+	width: 70%;
+}
+.eat ul li .eat-r{
+	float: right;
+	margin-right: 3%;
+}
+.eat .tit{
+	border-bottom: 1px solid #999;
+	font-size: 16px;
+	padding: 15px 0 5px;
+	overflow: hidden;
+}
+.eat ul li,.tit{
+	margin-left: 3%;
+}
+.eat ul .last{
+	border-bottom: none;
+}
+.eat .tit .red{
+	color: red;
+	display: inline-block;
+	float: right;
+	margin-right: 3%;
+}
+.eat .tit i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: -4px;
+	margin-right: 5px;
+	background: url(../images/food.png) no-repeat;
+	background-size: 90%;
+}
+.eat .tit .dan{
+	background-position: 1px -21px;
+}
+.eat .tit .fruit{
+	background-position: 1px -64px;
+}
+.eat .tit .greens{
+	background-position: 1px -44px;
+}
+.eat .tit .oil{
+	background-position: 1px -127px;
+}
+.three-columns .change{
+	display: none;
+}
+.alert{
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #5d5a5a;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	margin: -120px auto 0;
+	display: none;
+}

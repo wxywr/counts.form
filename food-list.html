@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name="applicable-device" content="mobile">
+	<title>食物清单</title>
+	<link rel="stylesheet" href="css/count.css" type="text/css">
+	<script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body style="background-color:#E6E6E6">
+	<div class="header">
+		<h1>食物清单</h1>
+	</div>
+	<ul class="food-sorts"> 
+		<li>优质蛋白</li>
+		<li>非优质蛋白</li>
+		<li>热卡类</li>
+	</ul>
+	<div class="three-columns" id="portion">
+		<div class="eat">
+			<div class="eat-top">
+				<p class="tit"><i class="rou"></i>鱼肉类 (每份含蛋白质10克,90热卡) <span class="red">共{{meat}}份</span></p>
+				<ul>
+					<li><p class="eat-l">猪瘦肉、羊瘦肉、牛瘦肉、驴肉、马肉、鸡肉、鸭肉、鹅肉、猪肝;鳊鱼、鲫鱼、青鱼、鲢鱼、黑鱼、鲤鱼、鲑鱼、泥鳅、鳗鱼、带鱼、大黄鱼、小黄鱼、鳕鱼、马鲛鱼、沙丁鱼、基围虾、对虾、河虾</p><p class="eat-r">50g/份</p></li>
+					<li class="last"><p class="eat-l">草鱼、鳝鱼、鲳鱼、海虾、河蟹、鲜贝、鲜海参</p><p class="eat-r">50g/份</p></li>
+				</ul>
+			</div>
+			<div class="eat-btm">
+				<p class="tit"><i class="dan"></i>蛋奶类 (每份含蛋白质7克,90热卡) <span class="red">共{{other}}份</span></p>
+				<ul>
+					<li><p class="eat-l">鸡蛋 (中等大)、鸭蛋 (小)</p><p class="eat-r">50g/个</p></li>
+					<li><p class="eat-l">鲜牛奶、酸奶</p><p class="eat-r">240ml/瓶</p></li>
+					<li><p class="eat-l">全脂奶粉</p><p class="eat-r">20g/份</p></li>
+					<li class="last"><p class="eat-l">北豆腐</p><p class="eat-r">70g/份</p></li>
+				</ul>
+			</div>
+		</div>
+		<div class="eat change">
+			<div class="eat-top">
+				<p class="tit"><i class="fruit"></i>水果类 (每份含蛋白质1克,90热卡) <span class="red">共2份</span></p>
+				<ul>
+					<li><p class="eat-l">香蕉、无花果、桂圆(鲜)、荔枝(鲜)、山楂、枣(鲜)、石榴、柿子</p><p class="eat-r">50g/份</p></li>
+					<li><p class="eat-l">菠萝、桃子、鸭梨、苹果、蜜桔、柑橘、柚子、葡萄、西瓜</p><p class="eat-r">80g/份</p></li>
+					<li><p class="eat-l">枇杷、草莓、李子、杏子、杨桃、柠檬</p><p class="eat-r">110g/份</p></li>
+					<li class="last"><p class="eat-l">杨梅、樱桃</p><p class="eat-r">160g/份</p></li>
+				</ul>
+			</div>
+			<div class="eat-btm">
+				<p class="tit"><i class="greens"></i>蔬菜类 (每份含蛋白质2克,90热卡) <span class="red">共2份</span></p>
+				<ul>
+					<li><p class="eat-l">白菜、圆白菜、菠菜、油菜、韭菜、芹菜、莴笋、西葫芦、西红柿、冬瓜、黄瓜、苦瓜、茄子、绿豆芽</p><p class="eat-r">500g</p></li>
+					<li><p class="eat-l">倭瓜、柿椒、萝卜</p><p class="eat-r">350g/份</p></li>
+					<li class="last"><p class="eat-l">扁豆、四季豆</p><p class="eat-r">250g/份</p></li>
+				</ul>
+			</div>
+			<div class="eat-btm" v-if="normalRice" v-if="normalRice">
+				<p class="tit"><i class="greens"></i>普通大米 (每份含蛋白质2克,90热卡) <span class="red">共{{normalRice}}份</span></p>
+				<ul>
+					<li><p class="eat-l">普通大米</p><p class="eat-r">26g/份</p></li>
+				</ul>
+			</div>
+			<div class="eat-btm" v-if="normalFork" v-if="normalFork">
+				<p class="tit"><i class="greens"></i>普通面粉 (每份含蛋白质3克,90热卡) <span class="red">共{{normalFork}}份</span></p>
+				<ul>
+					<li class="last"><p class="eat-l">普通面粉</p><p class="eat-r">27g/份</p></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="eat change" id="oil">
+			<div class="eat-top">
+				<p class="tit"><i class="oil"></i>油(每份含蛋白质0克,90热卡) <span class="red">共3份</span></p>
+				<ul>
+					<li ><p class="eat-l">油</p><p class="eat-r">10g/份</p></li>
+				</ul>
+			</div>
+
+			<div class="eat-btm">
+				<p class="tit"><i class="oil"></i>主食 (每份含蛋白质0克,90热卡) <span class="red">共{{lowProRice}}份</span></p>
+				<ul>
+					<li class="last"><p class="eat-l">低蛋白米饭 (米)</p><p class="eat-r">30g/份</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--<div class="download">下载总食物清单</div>-->
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/tab.js"></script>
+<script type="text/javascript">
+	var dataPortion = {
+		meat:request("meat"),
+		normalRice:request("normalRice"),
+		normalFork:request("normalFork"),
+		lowProRice:request("lowProRice"),
+		other:request("other")
+	};
+
+	var portion = new Vue({
+		el:'#portion',
+		data:dataPortion
+	});
+
+	function request(paras){
+		var url = location.href;
+		var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+		var paraObj = {};
+		for (var i=0; j=paraString[i]; i++){
+			paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+		}
+		var returnValue = paraObj[paras.toLowerCase()];
+		if(typeof(returnValue)=="undefined"){
+			return "";
+		}else{
+			return returnValue;
+		}
+	}
+</script>
+</html>

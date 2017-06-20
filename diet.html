@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name="applicable-device" content="mobile">
+	<title>饮食报告</title>
+	<link rel="stylesheet" href="css/count.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+	<div class="header">
+		<h1>饮食报告</h1>
+	</div>
+	<div class="info">
+		<div class="info-wrap">
+			<div class="time"></div>
+			<p class="stage">你属于肾功能不全 <span class="ckd">X</span>，体质指数（BMI）<span class="bmi" >X</span>。</p>
+			<p class="protein">每日可用蛋白质 <span class="intake">X</span> 克，其中优质蛋白<span class="good">X</span>克，非优质蛋白<span class="notGood">X</span>克。</p>
+			<p class="energy">每日需总热量 <span class="calorie">X</span>卡，交换食品<span class="portion">X</span>份（每份交换食品为90卡）。</p>
+		</div>
+	</div>
+	<div class="list">
+		<h2>每日饮食配置如下：</h2>
+		<div class="hun" id="hun">
+			<ul>
+				<li v-if="meat || other"><h3 class="hun-l">优质蛋白：</h3><a href="javascript:;" onclick="foodList()" class="hun-r">查看食物</a></li>
+				<li v-if="meat"><span class="hun-l"><i class="meat"></i>肉类</span><span class="hun-r">{{meat}}份</span></li>
+				<li v-if="other"><span class="hun-l"><i class="egg"></i>豆奶蛋类</span><span class="hun-r">{{other}}份</span></li>
+			</ul>
+		</div>
+		<div class="su" id="su">
+			<ul>
+				<li><h3 class="hun-l">非优质蛋白：</h3><a href="javascript:;" onclick="foodList()" class="hun-r">查看食物</a></li>
+				<li><span class="hun-l"><i class="greens"></i>蔬菜类</span><span class="hun-r">2份</span></li>
+				<li><span class="hun-l"><i class="fruits"></i>水果类</span><span class="hun-r">2份</span></li>
+				<li><span class="hun-l"><i class="rice"></i>普通大米</span><span class="hun-r">{{normalRice}}份</span></li>
+				<li><span class="hun-l"><i class="flour"></i>普通面粉</span><span class="hun-r">{{normalFork}}份</span></li>
+			</ul>
+		</div>
+		<div class="hot" id="hot">
+			<ul>
+				<li><h3 class="hun-l">热卡类：</h3><a href="javascript:;" onclick="foodList()" class="hun-r">查看食物</a></li>
+				<li><span class="hun-l btm">脂肪</span><span class="hun-r">3份</span></li>
+				<li><span class="hun-l btm">低蛋白质米饭</span><span class="hun-r">{{lowProRice}}份</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+//获取当前时间
+window.onload=function(){
+	var time = document.getElementsByClassName('time')[0];
+	if(time){
+		var d = new Date();
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var dt = d.getDate();
+		var today = year + "-" + month + "-" + dt;
+		time.innerHTML=today;
+	}
+};
+
+var dataHun = {
+	meat:request("meat"),
+	other:request("other")
+};
+
+var hun = new Vue({
+	el:'#hun',
+	data:dataHun
+});
+
+var dataSu = {
+	normalRice:request("normalRice"),
+	normalFork:request("normalFork")
+};
+
+var su = new Vue({
+	el:'#su',
+	data:dataSu
+});
+
+var dataHot = {
+	lowProRice:request("lowProRice")
+};
+
+var hot = new Vue({
+	el:'#hot',
+	data:dataHot
+});
+
+window.onload = function(){
+	$(".ckd").html(decodeURI(request("stage")));
+	$(".bmi").html(request("bmi"));
+	$(".intake").html(request("intake"));
+	$(".good").html(request("good"));
+	$(".notGood").html(request("notGood"));
+	$(".calorie").html(request("calorie"));
+	$(".portion").html(request("portion"));
+};
+
+function foodList(){
+	location.href="food-list.html"+
+			"?lowProRice="+request("lowProRice")+"&meat="+request("meat")+"&normalFork="+request("normalFork")+"&normalRice="+request("normalRice")+"&other="+request("other");
+}
+
+function request(paras){
+	var url = location.href;
+	var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+	var paraObj = {};
+	for (var i=0; j=paraString[i]; i++){
+		paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+	}
+	var returnValue = paraObj[paras.toLowerCase()];
+	if(typeof(returnValue)=="undefined"){
+		return "";
+	}else{
+		return returnValue;
+	}
+}
+</script>
+</html>
